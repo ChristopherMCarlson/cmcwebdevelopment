@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar>
-      <v-toolbar-title>My Portfolio</v-toolbar-title>
+      <v-toolbar-title></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn text to="/" exact>Home</v-btn>
       <v-btn text to="/about">About</v-btn>
