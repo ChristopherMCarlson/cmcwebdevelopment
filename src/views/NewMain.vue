@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <v-row class="pt-5 justify-center">
-            <v-col cols="5" id="table-of-contents" class="sticky">
+            <v-col cols="5" v-if="!isMobile" id="table-of-contents" class="sticky">
                 <v-row>
                     <v-col cols="8">
                         <div class="font-weight-black text-h3">Chris Carlson</div>
@@ -32,9 +32,10 @@
                     </v-col>
                 </v-row>
             </v-col>
-            <v-col cols="5" id="contents">
+            <v-col cols="12" md="5" id="contents">
                 <v-row>
                     <v-col id="about-item" cols="12" class="section" ref="about">
+                        <div class="font-weight-thin text-h3 mb-3" v-if="isMobile">About Me</div>
                         <p class="font-weight-light">
                             I am a passionate and detail-oriented Software Engineer with over six years of experience
                             developing
@@ -76,19 +77,21 @@
                         </p>
                     </v-col>
                     <v-col id="projects-item" cols="12" class="section" ref="projects">
+                        <div class="font-weight-thin text-h3 mb-3" v-if="isMobile">Projects</div>
                         <v-row v-for="project in projects" :key="project.image">
-                            <v-col cols="3">
+                            <v-col cols="12" md="3">
                                 <a :href="project.link" target="_blank">
                                     <v-img :src="project.image"></v-img>
                                 </a>
                             </v-col>
-                            <v-col cols="9">
+                            <v-col cols="12" md="3">
                                 <div class="font-weight-thin text-h3">{{ project.name }}</div>
                                 <div class="font-weight-light">{{ project.description }}</div>
                             </v-col>
                         </v-row>
                     </v-col>
                     <v-col id="skills-item" cols="12" class="section" ref="skills">
+                        <div class="font-weight-thin text-h3 mb-3" v-if="isMobile">Skills</div>
                         <v-row>
                             <v-col cols="2" v-for="skill in frontendSkills" :key="skill.logo">
                                 <a :href="skill.link" target="_blank">
@@ -105,11 +108,12 @@
                         </v-row>
                     </v-col>
                     <v-col id="experience-item" cols="12" class="section" ref="experience">
+                        <div class="font-weight-thin text-h3 mb-3" v-if="isMobile">Experience</div>
                         <v-row v-for="job in jobs" :key="job.logo">
-                            <v-col cols="3">
+                            <v-col cols="12" md="3">
                                 <v-img :src="job.logo"></v-img>
                             </v-col>
-                            <v-col cols="9">
+                            <v-col cols="12" md="9">
                                 <div class="font-weight-thin text-h3">{{ job.title }}</div>
                                 <div>{{ job.company }}</div>
                                 <div>{{ job.date }}</div>
@@ -301,7 +305,12 @@ export default {
     },
     beforeUnmount() {
         this.observer.disconnect();
-    }
+    },
+    computed: {
+        isMobile() {
+            return this.$vuetify.display.mobile;
+        },
+    },
 
 }
 </script>
