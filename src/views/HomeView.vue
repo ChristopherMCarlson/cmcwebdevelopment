@@ -9,33 +9,63 @@
         </v-row>
         <v-row class="mb-1" :class="isMobile ? 'justify-center' : ''">
           <v-col cols="6" v-if="isMobile" class="text-center">
-            <v-img
-              :src="require('@/assets/me.jpg')"
-              alt="Chris Carlson"
-            ></v-img>
+            <v-img :src="require('@/assets/me.jpg')" alt="Chris Carlson"></v-img>
           </v-col>
           <v-col :cols="[isMobile ? '12' : '9']">
             <h1>Hello, I'm Chris Carlson</h1>
             <p>
-              I am a passionate and detail-oriented Software Engineer with over six years of experience developing robust, scalable, and user-centric applications. My expertise spans a wide array of modern technologies, including React, Vue, Angular, JavaScript, and TypeScript for frontend development, and Node.js, Redis, and AWS for backend and infrastructure.
+              I am a passionate and detail-oriented Software Engineer with over six years of experience developing
+              robust, scalable, and user-centric applications. My expertise spans a wide array of modern technologies,
+              including React, Vue, Angular, JavaScript, and TypeScript for frontend development, and Node.js, Redis,
+              and AWS for backend and infrastructure.
               <br>
               <br>
-              I thrive on solving complex problems and building intuitive, efficient solutions that enhance user experience. My experience with Salesforce and Apex has further honed my ability to integrate diverse platforms seamlessly and streamline business processes.
+              I thrive on solving complex problems and building intuitive, efficient solutions that enhance user
+              experience. My experience with Salesforce and Apex has further honed my ability to integrate diverse
+              platforms seamlessly and streamline business processes.
               <br>
               <br>
-              From designing efficient architectures to deploying cloud-native solutions, I have a proven track record of delivering high-quality products within agile environments. I take pride in staying up-to-date with the latest tech trends and enjoy collaborating with cross-functional teams to turn innovative ideas into reality.
+              From designing efficient architectures to deploying cloud-native solutions, I have a proven track record
+              of delivering high-quality products within agile environments. I take pride in staying up-to-date with the
+              latest tech trends and enjoy collaborating with cross-functional teams to turn innovative ideas into
+              reality.
               <br>
               <br>
-              Beyond coding, I am committed to fostering clean code practices, mentoring peers, and contributing to team success through collaboration and knowledge sharing. Whether it's creating a dynamic single-page application or optimizing server-side performance, I am driven by a passion for excellence and continuous improvement.
+              Beyond coding, I am committed to fostering clean code practices, mentoring peers, and contributing to team
+              success through collaboration and knowledge sharing. Whether it's creating a dynamic single-page
+              application or optimizing server-side performance, I am driven by a passion for excellence and continuous
+              improvement.
             </p>
           </v-col>
           <v-col cols="3" v-if="!isMobile">
-            <v-img
-              :src="require('@/assets/me.jpg')"
-              width="300px"
-              height="300px"
-              alt="Chris Carlson"
-            ></v-img>
+            <v-img :src="require('@/assets/me.jpg')" width="300px" height="300px" alt="Chris Carlson"></v-img>
+          </v-col>
+        </v-row>
+        <v-divider></v-divider>
+        <v-row class="mb-1">
+          <v-col cols="12" class="text-center">
+            <h1 class="display-1">Projects</h1>
+          </v-col>
+          <v-col cols="12">
+            <v-row>
+              <v-col cols="12">
+                <v-row>
+                  <v-col cols="12">
+                    <v-row :class="isMobile ? 'justify-space-around' : ''">
+                      <v-col v-for="(project, i) in projects" :key="i" :cols="[isMobile ? '6' : '2']"
+                        class="text-center">
+                        <h3>{{ project.name }}</h3>
+                        <a :href="project.link" target="_blank">
+                          <v-img :src="project.image" alt="Project Image" width="200">
+                          </v-img>
+                        </a>
+                        <p>{{ project.description }}</p>
+                      </v-col>
+                    </v-row>
+                  </v-col>
+                </v-row>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
         <v-divider></v-divider>
@@ -52,21 +82,12 @@
                   </v-col>
                   <v-col cols="12">
                     <v-row :class="isMobile ? 'justify-space-around' : ''">
-                      <v-col
-                        v-for="(skill, i) in frontendSkills"
-                        :key="i"
-                        cols="2"
-                        class="text-center"
-                      >
-                      <a :href="skill.link" target="_blank">
-                        <v-img
-                          :src="skill.logo"
-                          alt="Skill logo"
-                          width="200"
-                            >
-                            </v-img>
-                              </a>
-                          <!-- <a :href="skill.link" target="_blank">{{ skill.name }}</a> -->
+                      <v-col v-for="(skill, i) in frontendSkills" :key="i" cols="2" class="text-center">
+                        <a :href="skill.link" target="_blank">
+                          <v-img :src="skill.logo" alt="Skill logo" width="200">
+                          </v-img>
+                        </a>
+                        <!-- <a :href="skill.link" target="_blank">{{ skill.name }}</a> -->
                       </v-col>
                     </v-row>
                   </v-col>
@@ -79,17 +100,8 @@
                   </v-col>
                   <v-col cols="12">
                     <v-row :class="isMobile ? 'justify-space-around' : ''">
-                      <v-col
-                        v-for="(skill, i) in backendSkills"
-                        :key="i"
-                        cols="2"
-                        class="text-center"
-                      >
-                          <v-img
-                            :src="skill.logo"
-                            alt="Skill logo"
-                            width="200"
-                          ></v-img>
+                      <v-col v-for="(skill, i) in backendSkills" :key="i" cols="2" class="text-center">
+                        <v-img :src="skill.logo" alt="Skill logo" width="200"></v-img>
                       </v-col>
                     </v-row>
                   </v-col>
@@ -105,28 +117,20 @@
           </v-col>
           <v-col cols="12">
             <v-row>
-              <v-col
-                v-for="(job, i) in jobs"
-                :key="i"
-                cols="12"
-              >
-              <v-row class="mb-1">
-                <v-col cols="3">
-                  <v-img
-                    :src="job.logo"
-                    alt="Job logo"
-                    width="200"
-                  ></v-img>
-                </v-col>
-                <v-col :cols="[isMobile ? '12' : '9']">
-                  <h2>{{ job.title }}</h2>
-                  <h3>{{ job.company }} - {{ job.date }}</h3>
-                  <ul>
-                    <li v-for="(description, i) in job.description" :key="i">{{ description }}</li>
-                  </ul>
-                </v-col>
-              </v-row>
-              <v-divider></v-divider>
+              <v-col v-for="(job, i) in jobs" :key="i" cols="12">
+                <v-row class="mb-1">
+                  <v-col cols="3">
+                    <v-img :src="job.logo" alt="Job logo" width="200"></v-img>
+                  </v-col>
+                  <v-col :cols="[isMobile ? '12' : '9']">
+                    <h2>{{ job.title }}</h2>
+                    <h3>{{ job.company }} - {{ job.date }}</h3>
+                    <ul>
+                      <li v-for="(description, i) in job.description" :key="i">{{ description }}</li>
+                    </ul>
+                  </v-col>
+                </v-row>
+                <v-divider></v-divider>
               </v-col>
             </v-row>
           </v-col>
@@ -143,6 +147,14 @@ export default defineComponent({
   name: 'HomeView',
   data() {
     return {
+      projects: [
+        {
+          name: 'Tender',
+          image: require('@/assets/projects/tender.png'),
+          description: 'An app that allows users to save recipes they like, add friends, and see when friends have saved the same recipe.',
+          link: 'https://tender.cmcwebdevelopment.com/'
+        }
+      ],
       frontendSkills: [
         {
           name: 'JavaScript',
@@ -276,4 +288,3 @@ export default defineComponent({
   },
 });
 </script>
-
