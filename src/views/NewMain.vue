@@ -4,7 +4,7 @@
             <v-col cols="5" v-if="!isMobile" id="table-of-contents" class="sticky">
                 <v-row>
                     <v-col cols="8">
-                        <div class="font-weight-black text-h3">Chris Carlson</div>
+                        <div class="font-weight-thin text-h3">Chris Carlson</div>
                         <div class="text-h5">Full Stack Developer</div>
                         <div class="text-h5 font-weight-thin">I build sleek, stylish, and functional websites and
                             software solutions
@@ -35,7 +35,7 @@
             <v-col cols="12" md="5" id="contents">
                 <v-row>
                     <v-col cols="12" v-if="isMobile">
-                        <div class="font-weight-black text-h3">Chris Carlson</div>
+                        <div class="font-weight-thin text-h3">Chris Carlson</div>
                         <div class="text-h5">Full Stack Developer</div>
                         <div class="text-h5 font-weight-thin">I build sleek, stylish, and functional websites and
                             software solutions
